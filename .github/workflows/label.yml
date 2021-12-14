@@ -6,9 +6,9 @@ on:
 jobs:
   build:
     if: contains( github.event.label.name, 'approved')
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v2
       - name: Echo
-        run: echo funcionou
+        run: echo 'funcionou'
