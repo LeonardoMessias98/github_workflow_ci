@@ -12,4 +12,4 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Echo
-        run: echo "Hello ${{ github.event }} ${{ github.event.head_commit.message }}! ${{ github.event.commits[0].message }} ${{ github.ref_name}}"
+        run: echo "Hello ${{ github.event }} - ${{ github.sha }} - ${{ github.ref_name }} - ${{ github.ref }} - ${{ github.server_url }}"
