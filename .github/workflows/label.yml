@@ -12,4 +12,4 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Echo
-        run: echo "Hello ${{ github.event }} ${{ github.event.event }}! ${{ github.event.commit_id }}"
+        run: echo "Hello ${{ github.event }} ${{ github.url }}! ${{ github.commit_id }}"
