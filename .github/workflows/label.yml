@@ -10,14 +10,23 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJSON(github) }}
+        run: echo "$GITHUB_CONTEXT"
+
       - uses: actions/checkout@v2
       - name: Echo
         run: echo "Hello ${{ github.event }} - ${{ github.sha }} - ${{ github.ref_name }} - ${{ github.ref }} - ${{ runner.name }}"
 
       - name: Branch name
+        env:
+          GITHUB_REF: ${{ toJSON(github.ref) }}
         run: echo running on branch ${GITHUB_REF##*/}
 
       - name: Extract branch name
+        env:
+          GITHUB_REF: ${{ toJSON(github.ref) }}
         shell: bash
         run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
         id: extract_branch
