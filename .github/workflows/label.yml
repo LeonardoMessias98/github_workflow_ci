@@ -12,4 +12,12 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Echo
-        run: echo "Hello ${{ github.event }} - ${{ github.sha }} - ${{ github.ref_name }} - ${{ github.ref }} - ${{ github.server_url }}"
+        run: echo "Hello ${{ github.event }} - ${{ github.sha }} - ${{ github.ref_name }} - ${{ github.ref }} - ${{ runner.name }}"
+
+      - name: Branch name
+        run: echo running on branch ${GITHUB_REF##*/}
+
+      - name: Extract branch name
+        shell: bash
+        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+        id: extract_branch
