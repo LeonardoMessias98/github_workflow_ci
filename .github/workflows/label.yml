@@ -23,3 +23,4 @@ jobs:
           git config --global user.email "messiasleonardo98@gmail.com"
           git config --global user.name "LeonardoMessias98"
           git merge origin/${{ github.base_ref }}
+          git push origin ${{ github.head_ref }}
