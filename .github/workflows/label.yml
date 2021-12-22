@@ -20,4 +20,6 @@ jobs:
         run: |
           git fetch
           git checkout ${{ github.head_ref }}
+          git config --global user.email "messiasleonardo98@gmail.com"
+          git config --global user.name "LeonardoMessias98"
           git merge origin/${{ github.base_ref }}
