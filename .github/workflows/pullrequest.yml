@@ -1,4 +1,4 @@
-name: Labeler
+name: PullRequest
 
 on:
   pull_request:
@@ -17,10 +17,4 @@ jobs:
 
       - uses: actions/checkout@v2
       - name: Echo
-        run: |
-          git fetch
-          git checkout ${{ github.head_ref }}
-          git config --global user.email "messiasleonardo98@gmail.com"
-          git config --global user.name "LeonardoMessias98"
-          git merge origin/${{ github.base_ref }}
-          git push origin ${{ github.head_ref }}
+        run: echo "PR Aprovada - Aguardando Revisão da qualidade -> ${{ github.event.pull_request._links.html.href }} "
