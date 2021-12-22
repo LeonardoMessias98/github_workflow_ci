@@ -17,4 +17,4 @@ jobs:
 
       - uses: actions/checkout@v2
       - name: Echo
-        run: echo "PR Aprovada - Aguardando Revisão da qualidade -> ${{ github.event.pull_request._links.html.href }} "
+        run: git status
