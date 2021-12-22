@@ -1,4 +1,4 @@
-name: Labeler
+name: PullRequest
 
 on:
   pull_request:
@@ -17,4 +17,4 @@ jobs:
 
       - uses: actions/checkout@v2
       - name: Echo
-        run: git merge ${{ github.base_ref }} -f
+        run: echo "PR Aprovada - Aguardando Revisão da qualidade -> ${{ github.event.pull_request._links.html.href }} "
