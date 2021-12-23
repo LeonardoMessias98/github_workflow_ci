@@ -19,5 +19,5 @@ jobs:
           git checkout develop
           git config --global user.email "messiasleonardo98@gmail.com"
           git config --global user.name "LeonardoMessias98"
-          git merge -Xignore-space-change origin/master --allow-unrelated-histories
+          git pull origin master --allow-unrelated-histories
           git push origin develop
