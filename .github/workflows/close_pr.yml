@@ -7,13 +7,13 @@ on:
 
 jobs:
   build:
-    if: github.event.pull_request.merged == true
+    # if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v2
       - name: Merge
-        if: ${{ github.base_ref == 'master' }}
+        # if: ${{ github.base_ref == 'master' }}
         run: |
           git fetch
           git checkout master
