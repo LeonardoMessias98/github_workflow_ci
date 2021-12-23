@@ -15,18 +15,12 @@ jobs:
       - name: Merge
         # if: ${{ github.base_ref == 'master' }}
         run: |
+          git clone https://github.com/LeonardoMessias98/github_workflow_ci
+          git config --global user.email "messiasleonardo98@gmail.com"
+          git config --global user.name "LeonardoMessias98"
           git fetch
           git checkout master
-          git pull
-          git log 
+          git pull origin master
           git checkout develop
-          git pull
-          git log 
-          # git config --global user.email "messiasleonardo98@gmail.com"
-          # git config --global user.name "LeonardoMessias98"
-          # git fetch
-          # git checkout master
-          # git pull origin master
-          # git checkout develop
-          # git merge origin/master
-          # git push origin develop
+          git merge master --allow-unrelated-histories
+          git push origin develop
