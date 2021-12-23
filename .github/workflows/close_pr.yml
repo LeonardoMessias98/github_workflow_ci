@@ -10,10 +10,9 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      - uses: actions/checkout@v2
       - name: Merge Master
         if: ${{ github.base_ref == 'master' }}
-        - run: |
+          run: |
             git fetch
             git checkout develop
             git config --global user.email "messiasleonardo98@gmail.com"
