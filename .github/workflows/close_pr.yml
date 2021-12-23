@@ -18,5 +18,6 @@ jobs:
           git checkout develop
           git config --global user.email "messiasleonardo98@gmail.com"
           git config --global user.name "LeonardoMessias98"
+          git config --global pull.ff only
           git pull origin master
           git push origin develop
