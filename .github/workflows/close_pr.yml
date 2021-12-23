@@ -5,17 +5,18 @@ on:
     types: [closed]
 
 jobs:
-  merge_job:
+  build:
     if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
-    
+
     steps:
-      - name: Merge Master
+      - uses: actions/checkout@v2
+      - name: Merge
         if: ${{ github.base_ref == 'master' }}
-          run: |
-            git fetch
-            git checkout develop
-            git config --global user.email "messiasleonardo98@gmail.com"
-            git config --global user.name "LeonardoMessias98"
-            git merge origin/master
-            git push origin develop
+        run: |
+          git fetch
+          git checkout develop
+          git config --global user.email "messiasleonardo98@gmail.com"
+          git config --global user.name "LeonardoMessias98"
+          git merge origin/master
+          git push origin develop
