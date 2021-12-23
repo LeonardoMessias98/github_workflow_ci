@@ -18,7 +18,6 @@ jobs:
           git fetch
           git checkout master
           git log --oneline
-          git status
           # git config --global user.email "messiasleonardo98@gmail.com"
           # git config --global user.name "LeonardoMessias98"
           # git fetch
