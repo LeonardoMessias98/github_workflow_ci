@@ -8,11 +8,19 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+    rules: 
+      - if: github.head_ref === hotfix
+        - if: github.base_ref !== master
+          [skip ci]
+
     steps:
       - name: Dump GitHub context
         env:
           GITHUB_CONTEXT: ${{ toJSON(github) }}
-        run: echo "$GITHUB_CONTEXT"
+        run: |
+          echo "$GITHUB_CONTEXT"
+          echo github.head_ref
+          echo github.base_ref
 
       - uses: actions/checkout@v2
       - name: Echo
