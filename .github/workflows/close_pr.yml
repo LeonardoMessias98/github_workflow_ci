@@ -1,6 +1,7 @@
 name: Merge Master
 
 on:
+  workflow_dispatch:
   pull_request:
     types: [closed]
 
