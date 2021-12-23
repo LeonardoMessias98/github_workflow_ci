@@ -17,6 +17,7 @@ jobs:
         run: |
           git fetch
           git checkout master
+          git pull
           git log --oneline
           # git config --global user.email "messiasleonardo98@gmail.com"
           # git config --global user.name "LeonardoMessias98"
