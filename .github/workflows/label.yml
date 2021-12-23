@@ -8,11 +8,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-    rules: 
-      - if: github.head_ref === hotfix
-        - if: github.base_ref !== master
-          [skip ci]
-
     steps:
       - name: Dump GitHub context
         env:
@@ -23,7 +18,8 @@ jobs:
           echo github.base_ref
 
       - uses: actions/checkout@v2
-      - name: Echo
+      - name: Merge
+        if: ${{ (github.base_ref === 'develop' && !contains(github.head_ref, 'hotfix')) ||  github.base_ref === 'master' }}
         run: |
           git fetch
           git checkout ${{ github.head_ref }}
