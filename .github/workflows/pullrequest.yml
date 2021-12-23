@@ -15,8 +15,8 @@ jobs:
           GITHUB_CONTEXT: ${{ toJSON(github) }}
         run: |
           echo "$GITHUB_CONTEXT"
-          contains( github.event.label.name, 'bugdev')
-          contains( github.event.label.name, 'h')
+          echo github.head_ref
+          echo github.base_ref
 
       - uses: actions/checkout@v2
       - name: Echo
