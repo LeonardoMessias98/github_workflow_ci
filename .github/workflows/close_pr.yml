@@ -19,6 +19,9 @@ jobs:
           git checkout master
           git pull
           git log 
+          git checkout develop
+          git pull
+          git log 
           # git config --global user.email "messiasleonardo98@gmail.com"
           # git config --global user.name "LeonardoMessias98"
           # git fetch
