@@ -6,14 +6,17 @@ on:
 
 jobs:
   build:
-    if: contains( github.event.label.name, 'approved')
+    if: contains(github.head_ref, 'hotfix') and !contains(github.base_ref, 'master')
     runs-on: ubuntu-latest
 
     steps:
       - name: Dump GitHub context
         env:
           GITHUB_CONTEXT: ${{ toJSON(github) }}
-        run: echo "$GITHUB_CONTEXT"
+        run: |
+          echo "$GITHUB_CONTEXT"
+          contains( github.event.label.name, 'bugdev')
+          contains( github.event.label.name, 'h')
 
       - uses: actions/checkout@v2
       - name: Echo
