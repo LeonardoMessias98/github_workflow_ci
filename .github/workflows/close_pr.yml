@@ -10,6 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+<<<<<<< HEAD
       - uses: actions/checkout@v2
       - name: Merge
         if: ${{ github.base_ref == 'master' }}
@@ -20,3 +21,14 @@ jobs:
           git config --global user.name "LeonardoMessias98"
           git merge origin/master
           git push origin develop
+=======
+      - name: Merge Master
+        if: ${{ github.base_ref == 'master' }}
+          run: |
+            git fetch
+            git checkout develop
+            git config --global user.email "messiasleonardo98@gmail.com"
+            git config --global user.name "LeonardoMessias98"
+            git merge origin/master
+            git push origin develop
+>>>>>>> c77e44a8300e172f4815295959c28b6017afd21e
