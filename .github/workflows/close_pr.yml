@@ -18,5 +18,5 @@ jobs:
           git checkout develop
           git config --global user.email "messiasleonardo98@gmail.com"
           git config --global user.name "LeonardoMessias98"
-          git pull origin master --rebase
+          git merge origin/master
           git push origin develop
