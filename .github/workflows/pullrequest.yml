@@ -1,23 +1,23 @@
-name: PullRequest
+# name: PullRequest
 
-on:
-  pull_request:
-    types: [labeled]
+# on:
+#   pull_request:
+#     types: [labeled]
 
-jobs:
-  build:
-    if: contains(github.head_ref, 'hotfix') and !contains(github.base_ref, 'master')
-    runs-on: ubuntu-latest
+# jobs:
+#   build:
+#     if: contains(github.head_ref, 'hotfix') and !contains(github.base_ref, 'master')
+#     runs-on: ubuntu-latest
 
-    steps:
-      - name: Dump GitHub context
-        env:
-          GITHUB_CONTEXT: ${{ toJSON(github) }}
-        run: |
-          echo "$GITHUB_CONTEXT"
-          echo github.head_ref
-          echo github.base_ref
+#     steps:
+#       - name: Dump GitHub context
+#         env:
+#           GITHUB_CONTEXT: ${{ toJSON(github) }}
+#         run: |
+#           echo "$GITHUB_CONTEXT"
+#           echo github.head_ref
+#           echo github.base_ref
 
-      - uses: actions/checkout@v2
-      - name: Echo
-        run: echo "PR Aprovada - Aguardando Revisão da qualidade -> ${{ github.event.pull_request._links.html.href }} "
+#       - uses: actions/checkout@v2
+#       - name: Echo
+#         run: echo "PR Aprovada - Aguardando Revisão da qualidade -> ${{ github.event.pull_request._links.html.href }} "

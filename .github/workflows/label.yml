@@ -1,29 +1,29 @@
-name: Labeler
+# name: Labeler
 
-on:
-  pull_request:
-    types: [opened, reopened]
+# on:
+#   pull_request:
+#     types: [opened, reopened]
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
 
-    steps:
-      - name: Dump GitHub context
-        env:
-          GITHUB_CONTEXT: ${{ toJSON(github) }}
-        run: |
-          echo "$GITHUB_CONTEXT"
-          echo github.head_ref
-          echo github.base_ref
+#     steps:
+#       - name: Dump GitHub context
+#         env:
+#           GITHUB_CONTEXT: ${{ toJSON(github) }}
+#         run: |
+#           echo "$GITHUB_CONTEXT"
+#           echo github.head_ref
+#           echo github.base_ref
 
-      - uses: actions/checkout@v2
-      - name: Merge
-        if: ${{ (github.base_ref == 'develop' && !contains(github.head_ref, 'hotfix')) ||  github.base_ref == 'master' }}
-        run: |
-          git fetch
-          git checkout ${{ github.head_ref }}
-          git config --global user.email "messiasleonardo98@gmail.com"
-          git config --global user.name "LeonardoMessias98"
-          git merge origin/${{ github.base_ref }}
-          git push origin ${{ github.head_ref }}
+#       - uses: actions/checkout@v2
+#       - name: Merge
+#         if: ${{ (github.base_ref == 'develop' && !contains(github.head_ref, 'hotfix')) ||  github.base_ref == 'master' }}
+#         run: |
+#           git fetch
+#           git checkout ${{ github.head_ref }}
+#           git config --global user.email "messiasleonardo98@gmail.com"
+#           git config --global user.name "LeonardoMessias98"
+#           git merge origin/${{ github.base_ref }}
+#           git push origin ${{ github.head_ref }}
