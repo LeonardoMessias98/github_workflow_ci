@@ -1,3 +1,3 @@
 Repositório para testes de CI
 
-HOTFIX 2.6
+HOTFIX 2.7
