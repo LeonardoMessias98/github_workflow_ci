@@ -1,0 +1,15 @@
+ daily-run-workflow:
+   triggers:
+     - schedule:
+         cron: "1 * * * *"
+         filters:
+           branches:
+             only:
+               - master
+   jobs:
+    build:
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v1
+        - name: Every time
+          run: echo "This step will always run"
