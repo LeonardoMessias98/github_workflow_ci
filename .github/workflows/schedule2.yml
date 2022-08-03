@@ -2,6 +2,9 @@ name: "other_schedule"
 on:
   schedule:
   - cron: "*/1 * * * 1-5"
+  
+  workflow_dispatch:
+ 
 jobs:
   my_job:
     name: deploy to staging
