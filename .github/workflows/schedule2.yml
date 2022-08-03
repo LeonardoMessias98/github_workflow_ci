@@ -12,4 +12,4 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Echo some text
-      run: echo teste
+      run: curl -X POST --data-urlencode "payload={\"channel\": \"#squad-posto-ipiranga\", \"username\": \"webhookbot\", \"text\": \"Teste integração GITHUB actions.\", \"icon_emoji\": \":ghost:\"}" https://hooks.slack.com/services/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
