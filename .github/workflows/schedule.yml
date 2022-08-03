@@ -1,16 +1,13 @@
 name: "schedule"
 on:
   schedule:
-    - cron:  '1 * * * *'    # At every 15th minute
+    - cron:  '*/5 * * * *'    # At every 15th minute
 
 jobs:
-  singleJobName:
+  print:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-        with:
-          ref: ${{ env.DELAYED_JOB_CHECKOUT_REF }} # SHA that triggered your original job 
-
-      - name: Print some log
-        run: echo Rodou
+      - uses: actions/checkout@v1
+      - name: Every time
+        run: echo "This step will always run"
 
