@@ -1,4 +1,4 @@
-name: PullRequest
+name: Build  Runner
 
 on:
   pull_request:
