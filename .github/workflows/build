@@ -2,7 +2,7 @@ name: PullRequest
 
 on:
   pull_request:
-    types: [labeled]
+    types: [opened,reopened]
 
 jobs:
   build:
