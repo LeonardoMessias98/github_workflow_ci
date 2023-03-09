@@ -1,4 +1,4 @@
 Repositório para testes de CI
 
-HOTFIX 3.0
+HOTFIX 3.1
 
